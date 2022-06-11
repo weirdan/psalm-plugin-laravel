@@ -10,7 +10,7 @@ jobs:
       matrix:
         php: [8.0, 8.1]
         illuminate_version: [8.67.*, 9.7.*]
-        stability: [prefer-lowest, prefer-stable]
+        stability: ['--prefer-lowest', '--prefer-stable', '']
 
     name: P${{ matrix.php }} | I ${{ matrix.illuminate_version }} | ${{ matrix.stability }}
 
@@ -27,7 +27,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer require "laravel/framework:${{ matrix.illuminate_version }}" "illuminate/container:${{ matrix.illuminate_version }}" "illuminate/contracts:${{ matrix.illuminate_version }}" "illuminate/database:${{ matrix.illuminate_version }}" "illuminate/http:${{ matrix.illuminate_version }}" "illuminate/support:${{ matrix.illuminate_version }}" --no-interaction --no-progress --prefer-dist --${{ matrix.stability }}
+          composer require "laravel/framework:${{ matrix.illuminate_version }}" "illuminate/container:${{ matrix.illuminate_version }}" "illuminate/contracts:${{ matrix.illuminate_version }}" "illuminate/database:${{ matrix.illuminate_version }}" "illuminate/http:${{ matrix.illuminate_version }}" "illuminate/support:${{ matrix.illuminate_version }}" --no-interaction --no-progress --prefer-dist ${{ matrix.stability }}
 
       - name: Run Tests
         run: composer test
