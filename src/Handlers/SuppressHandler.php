@@ -17,83 +17,90 @@ class SuppressHandler implements AfterClassLikeVisitInterface
 {
     /**
      * @var array<string, list<class-string>>
+     * @psalm-suppress UndefinedClass
      */
     private const BY_CLASS = [
         'UnusedClass' => [
-            'App\Console\Kernel',
-            'App\Exceptions\Handler',
-            'App\Http\Controllers\Controller',
-            'App\Http\Kernel',
-            'App\Http\Middleware\Authenticate',
-            'App\Http\Middleware\TrustHosts',
-            'App\Providers\AppServiceProvider',
-            'App\Providers\AuthServiceProvider',
-            'App\Providers\BroadcastServiceProvider',
-            'App\Providers\EventServiceProvider',
+            \App\Console\Kernel::class,
+            \App\Exceptions\Handler::class,
+            \App\Http\Controllers\Controller::class,
+            \App\Http\Kernel::class,
+            \App\Http\Middleware\Authenticate::class,
+            \App\Http\Middleware\TrustHosts::class,
+            \App\Providers\AppServiceProvider::class,
+            \App\Providers\AuthServiceProvider::class,
+            \App\Providers\BroadcastServiceProvider::class,
+            \App\Providers\EventServiceProvider::class,
         ],
     ];
 
     /**
      * @var array<string, array<class-string, list<string>>>
+     * @psalm-suppress UndefinedClass
      */
     private const BY_CLASS_METHOD = [
         'PossiblyUnusedMethod' => [
-            'App\Http\Middleware\RedirectIfAuthenticated' => ['handle'],
+            \App\Http\Middleware\RedirectIfAuthenticated::class => ['handle'],
         ],
     ];
 
     /**
      * @var array<string, list<class-string>>
+     * @psalm-suppress UndefinedClass
      */
     private const BY_NAMESPACE = [
         'PropertyNotSetInConstructor' => [
-            'App\Jobs',
+            \App\Jobs::class,
         ],
         'PossiblyUnusedMethod' => [
-            'App\Events',
-            'App\Jobs',
+            \App\Events::class,
+            \App\Jobs::class,
         ],
     ];
 
     /**
      * @var array<string, array<class-string, list<string>>>
+     * @psalm-suppress UndefinedClass
      */
     private const BY_NAMESPACE_METHOD = [
         'PossiblyUnusedMethod' => [
-            'App\Events' => ['broadcastOn'],
-            'App\Jobs' => ['handle'],
-            'App\Mail' => ['__construct', 'build'],
-            'App\Notifications' => ['__construct', 'via', 'toMail', 'toArray'],
+            \App\Events::class => ['broadcastOn'],
+            \App\Jobs::class => ['handle'],
+            \App\Mail::class => ['__construct', 'build'],
+            \App\Notifications::class => ['__construct', 'via', 'toMail', 'toArray'],
         ]
     ];
 
     /**
      * @var array<string, list<class-string>>
+     * @psalm-suppress UndefinedClass
      */
     private const BY_PARENT_CLASS = [
         'PropertyNotSetInConstructor' => [
-            'Illuminate\Console\Command',
-            'Illuminate\Foundation\Http\FormRequest',
-            'Illuminate\Mail\Mailable',
-            'Illuminate\Notifications\Notification',
+            \Illuminate\Console\Command::class,
+            \Illuminate\Foundation\Http\FormRequest::class,
+            \Illuminate\Mail\Mailable::class,
+            \Illuminate\Notifications\Notification::class,
         ],
     ];
 
     /**
      * @var array<string, array<class-string, list<string>>>
+     * @psalm-suppress UndefinedClass
      */
     private const BY_PARENT_CLASS_PROPERTY = [
         'NonInvariantDocblockPropertyType' => [
-            'Illuminate\Console\Command' => ['description'],
+            \Illuminate\Console\Command::class => ['description'],
         ],
     ];
 
     /**
-     * @var array<string, array<class-string, list<string>>>
+     * @var array<string, array<class-string>>
+     * @psalm-suppress UndefinedClass
      */
     private const BY_USED_TRAITS = [
         'PropertyNotSetInConstructor' => [
-            'Illuminate\Queue\InteractsWithQueue',
+            \Illuminate\Queue\InteractsWithQueue::class,
         ]
     ];
 
