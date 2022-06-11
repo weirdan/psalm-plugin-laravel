@@ -5,7 +5,7 @@ Feature: Taint Analysis
     Given I have the following config
       """
       <?xml version="1.0"?>
-      <psalm totallyTyped="false">
+      <psalm errorLevel="2">
         <projectFiles>
           <directory name="."/>
           <ignoreFiles> <directory name="../../vendor"/> </ignoreFiles>
@@ -33,5 +33,5 @@ Feature: Taint Analysis
     """
     When I run Psalm with taint analysis
     Then I see these errors
-      | Type  | Message |
-      | TaintedInput | Detected tainted sql in path: Illuminate\Http\Request::input (/Users/brownma/Desktop/git/laravel-psalm-plugin/src/Stubs/InteractsWithInput.stubphp:22:21) -> $input (somefile.php:9:3) -> Illuminate\Support\Facades\DB::raw#1 (/Users/brownma/Desktop/git/laravel-psalm-plugin/src/Stubs/DBFacade.stubphp:15:25) |
+      | Type         | Message                                                          |
+      | TaintedInput | /Detected tainted sql in path: Illuminate\\Http\\Request::input/ |
