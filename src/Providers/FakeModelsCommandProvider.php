@@ -22,7 +22,7 @@ class FakeModelsCommandProvider
         assert(is_string($ideHelperVersion));
 
         // ide-helper released a breaking change in a non-major version. As a result, we need to monkey patch our code
-        if (InstalledVersions::satisfies(new VersionParser, 'barryvdh/laravel-ide-helper', '<2.9.2')) {
+        if (InstalledVersions::satisfies(new VersionParser(), 'barryvdh/laravel-ide-helper', '<2.9.2')) {
             return new FakeModelsCommand291(
                 $filesystem,
                 $schemaAggregator
